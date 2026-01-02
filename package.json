@@ -12,7 +12,7 @@
     "url": "git+https://github.com/gavinwmartin/companion-module-simple-countdown-timer.git"
   },
   "engines": {
-    "node": "^22.20",
+    "node": "^18.18 || ^20 || ^22",
     "yarn": "^4"
   },
   "dependencies": {
