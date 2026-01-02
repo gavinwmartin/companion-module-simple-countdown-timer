@@ -18,7 +18,7 @@ class ModuleInstance extends InstanceBase {
   async init(config) {
     this.config = config
 
-    this.updateStatus(InstanceStatus.Ok)
+    this.validateConfig()
 
     this.updateActions()
     this.updateFeedbacks()
@@ -32,6 +32,7 @@ class ModuleInstance extends InstanceBase {
 
   async configUpdated(config) {
     this.config = config
+    this.validateConfig()
     await this.refreshState()
   }
 
@@ -49,6 +50,7 @@ class ModuleInstance extends InstanceBase {
         label: 'Timer Host',
         width: 8,
         regex: Regex.IP,
+        tooltip: 'IP address or hostname where the simple-countdown-timer API is running',
         default: '127.0.0.1',
       },
       {
@@ -57,9 +59,20 @@ class ModuleInstance extends InstanceBase {
         label: 'Timer Port',
         width: 4,
         regex: Regex.PORT,
+        tooltip: 'TCP port exposed by the timer API (default 3000)',
         default: '3000',
       },
     ]
+  }
+
+  validateConfig() {
+    if (!this.config?.host || !this.config?.port) {
+      this.updateStatus(InstanceStatus.BadConfig, 'Set the timer host and port')
+      return false
+    }
+
+    this.updateStatus(InstanceStatus.Ok)
+    return true
   }
 
   async sendApiRequest(path, { method = 'POST', body } = {}) {
