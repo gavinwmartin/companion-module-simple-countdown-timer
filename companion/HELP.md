@@ -1,6 +1,6 @@
 ## Simple Countdown Timer
 
-This module connects Bitfocus Companion to the [simple-countdown-timer](https://github.com/gavinwmartin/simple-countdown-timer) HTTP server. Configure the host and port for the timer in the module settings (defaults to `127.0.0.1` and `3000`).
+This module connects Bitfocus Companion to the [simple-countdown-timer](https://github.com/gavinwmartin/simple-countdown-timer-server) HTTP server. Configure the host and port for the timer in the module settings (defaults to `127.0.0.1` and `3000`).
 
 The module expects the timer to expose these endpoints:
 
