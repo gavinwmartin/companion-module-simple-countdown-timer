@@ -3,6 +3,7 @@ const UpgradeScripts = require('./upgrades')
 const UpdateActions = require('./actions')
 const UpdateFeedbacks = require('./feedbacks')
 const UpdateVariableDefinitions = require('./variables')
+const UpdatePresets = require('./presets')
 
 /**
  * Bitfocus Companion module: Simple Countdown Timer (control-server.js)
@@ -34,6 +35,7 @@ class ModuleInstance extends InstanceBase {
     this.updateActions()
     this.updateFeedbacks()
     this.updateVariableDefinitions()
+    this.updatePresets()
 
     // Try an immediate health check, then poll
     await this.refreshState()
@@ -216,6 +218,10 @@ class ModuleInstance extends InstanceBase {
       supported_actions: (this.state.supportedActions || []).join(', '),
       last_message: this.state.lastMessage || '',
     })
+  }
+
+  updatePresets() {
+    UpdatePresets(this)
   }
 }
 
