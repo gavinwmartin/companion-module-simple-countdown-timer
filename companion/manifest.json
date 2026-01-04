@@ -1,0 +1,26 @@
+{
+  "id": "simple-countdown-timer",
+  "name": "Simple Countdown Timer",
+  "shortname": "simple-countdown",
+  "description": "Control the simple-countdown-timer HTTP API from Companion",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "git+https://github.com/gavinwmartin/companion-module-simple-countdown-timer.git",
+  "bugs": "https://github.com/gavinwmartin/companion-module-simple-countdown-timer/issues",
+  "maintainers": [
+    {
+      "name": "Gavin Martin",
+      "email": ""
+    }
+  ],
+  "runtime": {
+    "type": "node22",
+    "api": "nodejs-ipc",
+    "apiVersion": "0.0.0",
+    "entrypoint": "../main.js"
+  },
+  "legacyIds": [],
+  "manufacturer": "gavinwmartin",
+  "products": ["simple-countdown-timer"],
+  "keywords": ["timer", "countdown"]
+}
